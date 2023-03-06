@@ -1,0 +1,59 @@
+openapi: 3.0.0
+info:
+  title: Login API
+  description: An API for user registration and login
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /auth/register:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: john123
+                password:
+                  type: string
+                  example: password123
+      responses:
+        '200':
+          description: User created successfully
+        '400':
+          description: Invalid request body or username already exists
+  /auth/login:
+    post:
+      summary: Log in a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: john123
+                password:
+                  type: string
+                  example: password123
+      responses:
+        '200':
+          description: User authenticated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZDhjOGYyZWIzZjViOTJjMzQ2M2UyYzMiLCJpYXQiOjE1Njg3MzAzMTcsImV4cCI6MTU2ODczMzYxN30.ylL7oapfD8zt1zGZn0wMv7-l-g1WytuV9Xyvw2a2vzk
+        '400':
+          description: Invalid username or password
+
