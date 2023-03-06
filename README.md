@@ -36,7 +36,7 @@ Username already exists
 
 
 ##### <i> Log in a user </i> 
-POST /auth/login
+POST <b>/auth/login</b>
 
 Authenticates a user with the given credentials and returns an access token.
 
